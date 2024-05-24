@@ -19,4 +19,7 @@ jobs:
       run:
         shell: bash
         working-directory: ./backend-api
-    steps:
+    steps: 
+      - name: test workflow runs
+        run: | 
+          echo "Hello world"
