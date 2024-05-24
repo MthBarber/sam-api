@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - template.yaml
-      - .github/workflows/backend-api-post-merge
+      - .github/workflows/backend-api-post-merge.yml
 
 permissions: 
   id-token: write # This requests the jwt
