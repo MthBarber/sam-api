@@ -1,0 +1,22 @@
+name: Backend API post merge workflow
+run-name: Backend API post merge workflow
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - template.yaml
+      - .github/workflows/backend-api-post-merge
+
+permissions: 
+  id-token: write # This requests the jwt
+  contents: read  # This is required for the actions/checkout
+
+jobs:
+  build-and-push-sam-artifact:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./backend-api
+    steps:
