@@ -19,7 +19,11 @@ jobs:
       run:
         shell: bash
         working-directory: ./backend-api
-    steps: 
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - name: test workflow runs
         run: | 
           echo "Hello world"
