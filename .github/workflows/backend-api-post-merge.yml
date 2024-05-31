@@ -25,7 +25,8 @@ jobs:
           fetch-depth: 0
 
       - uses: aws-actions/configure-aws-credentials@v4
-        with:          
+        with:
+          aws-region: eu-west-2
           role-to-assume: ${{secrets.GH_ACTIONS_ROLE_ARN}}
 
       - name: sts-get-caller-identity
