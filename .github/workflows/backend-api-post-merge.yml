@@ -8,6 +8,8 @@ on:
       - template.yaml
       - .github/workflows/backend-api-post-merge.yml
 
+  workflow_dispatch:
+  
 permissions: 
   id-token: write # This requests the jwt
   contents: read  # This is required for the actions/checkout
