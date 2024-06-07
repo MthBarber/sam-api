@@ -34,3 +34,12 @@ jobs:
       - name: sts-get-caller-identity
         run: |
           aws sts get-caller-identity 
+
+      - uses: aws-actions/setup-sam@v2
+        with:
+          use-installer: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: check-sam-cli-version
+        run: |
+          sam --version
