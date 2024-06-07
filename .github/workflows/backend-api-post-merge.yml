@@ -28,7 +28,6 @@ jobs:
 
       - uses: aws-actions/configure-aws-credentials@v4
         with:
-          audience: sts.amazonaws.com
           aws-region: eu-west-2 
           role-to-assume: ${{ secrets.GH_ACTIONS_ROLE_ARN }}
 
