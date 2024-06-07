@@ -31,15 +31,19 @@ jobs:
           aws-region: eu-west-2 
           role-to-assume: ${{ secrets.GH_ACTIONS_ROLE_ARN }}
 
-      - name: sts-get-caller-identity
-        run: |
-          aws sts get-caller-identity 
-
       - uses: aws-actions/setup-sam@v2
         with:
           use-installer: true
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: check-sam-cli-version
+      - name: check sam cli version
         run: |
           sam --version
+
+      - name: Validate and lint backend-api templete        
+        run: |
+          sam validate --lint
+
+      - name: Run SAM Build on backend-api template
+        run: |
+          sam build
