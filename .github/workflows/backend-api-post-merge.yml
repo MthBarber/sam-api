@@ -40,10 +40,14 @@ jobs:
         run: |
           sam --version
 
+      - name: Run SAM Build on backend-api template
+        run: |
+          sam build
+
       - name: Validate and lint backend-api templete        
         run: |
           sam validate --lint
 
-      - name: Run SAM Build on backend-api template
+      - name: Upload SAM template to S3
         run: |
-          sam build
+          aws s3 mv ./aws-sam s3://${{  secrets.SAM_ARTIFACT_STORAGE_BUCKET_NAME  }}
