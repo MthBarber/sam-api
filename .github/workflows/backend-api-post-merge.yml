@@ -48,6 +48,11 @@ jobs:
         run: |
           sam validate --lint
 
-      - name: Upload SAM template to S3
-        run: |
-          aws s3 mv ./aws-sam s3://${{  secrets.SAM_ARTIFACT_STORAGE_BUCKET_NAME  }}
+      - name: check current directory and files within
+        run: | 
+          pwd
+          ls 
+
+      # - name: Upload SAM template to S3
+      #   run: |
+      #     aws s3 mv ./aws-sam s3://${{  secrets.SAM_ARTIFACT_STORAGE_BUCKET_NAME  }}
