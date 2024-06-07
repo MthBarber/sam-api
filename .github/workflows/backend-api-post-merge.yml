@@ -51,6 +51,7 @@ jobs:
       - name: check current directory and files within
         run: | 
           pwd
+          cd ..
           ls 
 
       # - name: Upload SAM template to S3
