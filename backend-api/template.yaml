@@ -9,10 +9,10 @@ Resources:
     Properties:
       Description: Backend API built in CloudFormation
       Name: backend-api
-      EndPointConfiguration:
-        Type:
-          - REGIONAL
-      StageName: HelloWorld
+      # EndPointConfiguration:
+      #   Type:
+      #     - REGIONAL
+      # StageName: HelloWorld
       Policy:
         Version: 2012-10-17
         Statement:
@@ -23,9 +23,21 @@ Resources:
             Resource:
               - !Sub arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:backend-api/*
 
-  HelloWorldLambda:
-    Type: AWS::Serverless::Function
-    Properties:
+  # HelloWorldLambda:
+  #   Type: AWS::Serverless::Function
+  #   Properties:
+  #     Description: A Lambda that returns Hello World when called
+  #     FunctionName: HelloWorldLambda
+  #     Handler: helloWorldHandler.handler
+  #     Runtime: nodejs18.x
+
+
+       
+  # HelloWorldLambdaLogGroup:
+  #   Type: AWS::Logs::LogGroup
+  #   Properties:
+  #     LogGroupName: /aws/lambda/HelloWorldLamba
+
 
   # CallHelloWorldRole:
   #   Type: AWS::IAM::Role
